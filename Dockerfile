@@ -24,6 +24,12 @@ RUN wget https://github.com/progrium/entrykit/releases/download/v${ENTRYKIT_VERS
     && chmod +x /bin/entrykit \
     && entrykit --symlink
 
+# dockerize
+ENV DOCKERIZE_VERSION v0.6.1
+RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+ && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+ && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+
 # postgresql client
 # RUN apt-get install -y --no-install-recommends psql
 RUN curl https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
