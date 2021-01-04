@@ -3,7 +3,7 @@ FROM ruby:2.6.2
 ENV LANG C.UTF-8
 
 RUN apt-get update -qq && apt-get install -q -y --no-install-recommends \
-    build-essential zlib1g-dev libxslt-dev libxml2-dev libssl-dev locales libfontconfig1 unzip \
+    sudo build-essential zlib1g-dev libxslt-dev libxml2-dev libssl-dev locales libfontconfig1 unzip \
     vim lsb-release xvfb xauth fonts-takao fonts-takao-gothic fonts-takao-mincho \
     && rm -rf /var/lib/apt/lists/*
 
