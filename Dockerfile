@@ -62,6 +62,9 @@ RUN wget -q --no-check-certificate https://dl-ssl.google.com/linux/linux_signing
 # create user.
 RUN useradd rails
 RUN mkdir -p /home/rails && chown -R rails:rails /home/rails
+RUN gpasswd -a rails root
+RUN gpasswd -a rails sudo
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 # application directory.
 RUN mkdir /app
